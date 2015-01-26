@@ -9,6 +9,7 @@
 #include <iostream>
 using std::cout;
 using std::endl;
+#include <utility>
 
 template <typename T>
 void foo(T& i)
@@ -16,10 +17,17 @@ void foo(T& i)
     i++;
 }
 
+template <typename Func, typename T>
+void callFunc(Func f, T i)
+{
+    f(i);
+}
+
 int main() {
     int x=5;
     cout << x << endl;
-    foo(x);
+    //    foo(x);
+    callFunc(foo<int>,std::ref(x));
     cout << "Now x is " << x << endl;
     return 0;
 }
