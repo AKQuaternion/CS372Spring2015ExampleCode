@@ -7,9 +7,19 @@
 //
 
 #include <iostream>
+using std::cout;
+using std::endl;
 
-int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
+template <typename T>
+void foo(T& i)
+{
+    i++;
+}
+
+int main() {
+    int x=5;
+    cout << x << endl;
+    foo(x);
+    cout << "Now x is " << x << endl;
     return 0;
 }
